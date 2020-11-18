@@ -1,14 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-	<remote name="github" fetch="https://github.com"/>
-	<default remote="github" revision="refs/heads/master"/>
-
-	<project path="scripts" name="glikely/edk2-test-manifest">
-		<linkfile src="build.sh" dest="build.sh"/>
-	</project>
-	<project path="edk2"      name="tianocore/edk2" sync-s="true"/>
-	<project path="edk2-test" name="tianocore/edk2-test">
-		<linkfile src="uefi-sct/SctPkg" dest="SctPkg"/>
-	</project>
-	<project path="sct_parser" name="phatfree/sct_parser"/>
+  <remote name="github" fetch="https://github.com"/>
+  
+  <default remote="github" revision="refs/heads/master"/>
+  
+  <project name="glikely/edk2-test-manifest" path="scripts" revision="47fe552676534d18134661affbb9b8232d183079" upstream="refs/heads/master" dest-branch="refs/heads/master">
+    <linkfile src="build.sh" dest="build.sh"/>
+  </project>
+  <project name="phatfree/sct_parser" path="sct_parser" revision="b965d461e497a75d573d176a6127d1d6dfbbb154" upstream="refs/heads/master" dest-branch="refs/heads/master"/>
+  <project name="tianocore/edk2" path="edk2" revision="06dc822d045c2bb42e497487935485302486e151" upstream="refs/heads/master" dest-branch="refs/heads/master" sync-s="true"/>
+  <project name="tianocore/edk2-test" path="edk2-test" revision="5588ebe78620e7ee99bc56a08e964499af52a63b" upstream="refs/heads/master" dest-branch="refs/heads/master">
+    <linkfile src="uefi-sct/SctPkg" dest="SctPkg"/>
+  </project>
 </manifest>
-
