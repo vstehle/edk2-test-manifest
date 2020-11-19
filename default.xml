@@ -10,5 +10,6 @@
 		<linkfile src="uefi-sct/SctPkg" dest="SctPkg"/>
 	</project>
 	<project path="sct_parser" name="phatfree/sct_parser"/>
+	<project path="genimage" name="pengutronix/genimage"/>
 </manifest>
 
