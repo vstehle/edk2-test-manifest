@@ -67,3 +67,23 @@ cd ${BUILD_ARCH}_SCT
 zip -r ../edk2-test-${BUILD_ARCH,,}.zip *
 cd ..
 
+# Build genimage
+cd genimage
+[ -e configure ] || ./autogen.sh
+[ -e Makefile ] || ./configure
+make -j"$NUM_CPUS"
+cd ..
+
+# Generate a disk image
+tmp=$(mktemp -d)
+trap 'rm -fr "$tmp"' EXIT
+mkdir "$tmp/root"
+unzip -D "edk2-test-${BUILD_ARCH,,}.zip" -d "$tmp/root"
+
+PATH="$PATH:/sbin" ./genimage/genimage \
+	--config scripts/genimage.cfg \
+	--outputpath "$tmp/output" \
+	--rootpath "$tmp/root" \
+	--tmppath "$tmp/tmp"
+
+cp -v "$tmp/output/disk.img" .
