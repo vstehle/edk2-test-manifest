@@ -18,8 +18,10 @@ case $BUILD_ARCH in
 		export GCC5_AARCH64_PREFIX=aarch64-linux-gnu-
 		export CROSS_COMPILE_64=aarch64-linux-gnu-
 		BOOT_IMAGE_NAME=BOOTAA64.efi;;
+	X64)
+		BOOT_IMAGE_NAME=BOOTX64.efi;;
 	*)
-		echo  "Usage: build.sh [ARM|AARCH64]"
+		echo  "Usage: build.sh [ARM|AARCH64|X64]"
 		exit
 esac
 

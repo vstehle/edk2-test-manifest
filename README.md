@@ -19,6 +19,11 @@ parameter "ARM" to build.sh.
 ./build.sh ARM
 ```
 
+To perform a 64-bit x86 build pass the parameter "X64" to build.sh.
+```bash
+./build.sh X64
+```
+
 A zip file will be created containing the SCT which can be unzipped onto a
 flash drive
 
